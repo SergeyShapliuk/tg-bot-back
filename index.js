@@ -1,4 +1,9 @@
 require('dotenv').config()
+const express = require('express')
+
+const app = express()
+const port = process.env.PORT || 3000
+
 const TelegramBot = require("node-telegram-bot-api");
 
 const token = process.env.BOT_TOKEN;
@@ -35,3 +40,7 @@ const start_bot = () => {
 }
 
 start_bot()
+
+app.listen(port, () => {
+    console.log(`Server is online on port: ${port}`)
+})
